@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sameerkash/nodejs-freecodecamp/issues"
   },
-  "homepage": "https://github.com/Sameerkash/nodejs-freecodecamp#readme"
+  "homepage": "https://github.com/Sameerkash/nodejs-freecodecamp#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
