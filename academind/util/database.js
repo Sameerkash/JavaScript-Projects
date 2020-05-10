@@ -1,11 +1,31 @@
-const mysql = require('mysql2');
+// const mongodb = require('mongodb');
+// const MongoClient = mongodb.MongoClient;
 
-const pool = mysql.createPool({
+// let _db;
+// const mongoConnect = callback => {
+//     MongoClient.connect('')
+//         .then(
+//             result => {
+//                 console.log('Connected');
+//                 _db = result.db()
+//                 callback();
+//             })
+//         .catch(
+//             err => {
+//                 console.log(err)
+//                 throw err;
+//             }
+//         );
 
-    host: "localhost",
-    user: "root",
-    database: "node-complete",
-    password: "iwbam10fn"
-});
+// };
 
-module.exports = pool.promise();
+// const getDb = () => {
+//     if (_db) {
+//         return _db;
+//     }
+//     throw 'no Datbase found';
+
+// };
+
+// exports.mongoConnect = mongoConnect;
+// exports.getDb = getDb; 
