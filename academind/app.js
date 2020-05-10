@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
-
+const API = require('./API')
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -33,15 +33,13 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 mongoose
-  .connect(
-    'mongodb+srv://sam:iwbam10fn@cluster0-eixux.gcp.mongodb.net/test?retryWrites=true&w=majority'
-  )
+  .connect(API)
   .then(result => {
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
+          name: 'Sam',
+          email: 'Sam@test.com',
           cart: {
             items: []
           }
