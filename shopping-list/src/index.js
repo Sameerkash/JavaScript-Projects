@@ -27,7 +27,7 @@ const createWindow = () => {
 
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
   //insert menu
-  Menu.setApplicationMenu(mainMenuTemplate);
+  Menu.setApplicationMenu(mainMenu);
 
 };
 
