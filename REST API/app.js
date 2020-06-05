@@ -7,7 +7,7 @@ const multer = require('multer');
 
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
-const API = require('./secret/api');
+
 const app = express();
 
 const fileStorage = multer.diskStorage({
@@ -59,11 +59,15 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
+const api = require('./secret/api');
 
 mongoose
-  .connect(
-    API)
+  .connect(api)
   .then(result => {
-    app.listen(8080);
+    const server = app.listen(8080);
+    const io = require('./socket').init(server);
+    io.on('connection', socket => {
+      console.log('Client connected');
+    });
   })
   .catch(err => console.log(err));
