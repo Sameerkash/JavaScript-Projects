@@ -13,12 +13,19 @@
         createPost(data: CreatePostInput!): Post!
         createComment(data: CreateCommentInput!): Comment!
         deleteComment(id: ID!): Comment!
+        updateUser(id: ID!,data: UpdateuserInput!): User!
     }
 
     input CreateUserInput {
         name: String!
         email: String!
         age: Int 
+    }
+
+    input UpdateuserInput{
+        name: String
+        email: String
+        age: Int
     }
 
     input CreatePostInput {
