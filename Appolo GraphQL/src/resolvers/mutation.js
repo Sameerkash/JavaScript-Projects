@@ -64,7 +64,7 @@ const Mutation =
 
         return user;
     },
-    createPost(parent, args, { db }, info) {
+    createPost(parent, args, { db, pubSub }, info) {
         const userExists = db.users.some((user) => user.id === args.data.author);
 
         if (!userExists) {
@@ -77,10 +77,13 @@ const Mutation =
         };
 
         db.posts.push(post);
+        if (args.data.published) {
+            pubSub.publish(`post`, { post });
+        }
 
         return post;
     },
-    createComment(parent, args, { db }, info) {
+    createComment(parent, args, { db, pubSub }, info) {
         const userExists = db.users.some((user) => user.id === args.data.author);
         const postExists = db.posts.some((post) => post.id === args.data.post && post.published);
 
@@ -94,6 +97,8 @@ const Mutation =
         };
 
         db.comments.push(comment);
+        pubSub.publish(`comment ${args.data.post}`, { comment });
+
 
         return comment;
     },

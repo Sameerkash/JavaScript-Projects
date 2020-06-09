@@ -1,4 +1,4 @@
-import { GraphQLServer } from 'graphql-yoga';
+import { GraphQLServer, PubSub } from 'graphql-yoga';
 import uuidv4 from 'uuid/v4';
 
 import db from './db';
@@ -8,6 +8,8 @@ import Comment from './resolvers/comment';
 import Query from './resolvers/query';
 import Mutation from './resolvers/mutation';
 
+
+const pubSub = new PubSub();
 
 const server = new GraphQLServer({
     typeDefs: "./src/schema.graphql",
@@ -19,7 +21,8 @@ const server = new GraphQLServer({
         Comment
     },
     context: {
-        db
+        db,
+        pubSub
     },
 });
 
