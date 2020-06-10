@@ -8,6 +8,7 @@ import Comment from './resolvers/comment';
 import Query from './resolvers/query';
 import Mutation from './resolvers/mutation';
 
+import './prisma';
 
 const pubSub = new PubSub();
 
