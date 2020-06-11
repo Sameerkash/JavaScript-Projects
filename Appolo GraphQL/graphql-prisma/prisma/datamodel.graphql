@@ -8,7 +8,7 @@ type User {
 }
 
 type Post {
-  id: ID! @id
+  id: ID!  @id
   title: String!
   body: String!
   published: Boolean!
