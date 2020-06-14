@@ -36,7 +36,7 @@ const Query = {
     comments(parent, args, { prisma }, info) {
         return prisma.query.comments(null, info);
     },
-  
+
 };
 
 export { Query as default };
