@@ -1,0 +1,7 @@
+{
+  "$schema": "https://deno.land/x/denon/schema.json",
+  "scripts": {
+    "dev": "deno run --allow-net --allow-read mod.ts",
+    "cache": "deno cache deps.ts"
+  }
+}
